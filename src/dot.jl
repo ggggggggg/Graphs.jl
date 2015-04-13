@@ -55,6 +55,7 @@ function to_dot{G<:AbstractGraph}(graph::G, stream::IO,attrs::AttributeDict)
     stream
 end
 
+#write node attributes example: [shape=box, style=filled]
 function to_dot(attrs::AttributeDict)
     if isempty(attrs)
         ""
@@ -62,6 +63,7 @@ function to_dot(attrs::AttributeDict)
         string("[",join(map(to_dot,collect(attrs)),","),"]")
     end
 end
+# write a graph wide attributes example: size = "4,4";
 function to_dot_graph(attrs::AttributeDict)
     if isempty(attrs)
         ""
